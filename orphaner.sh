@@ -170,7 +170,7 @@ editkeepers() { #{{{
 	# insert clever error handling
 
 	if [ -n "$ORPHANED" ]; then
-		PACKAGES=`tempfile`;
+		PACKAGES=`mktemp`;
 		ERROR=0
 		dialog \
 			--backtitle "Orphaner" \
@@ -241,7 +241,7 @@ doorphans() { #{{{
 		fi
 	done #}}}
 
-	TMPFILE=`tempfile`
+	TMPFILE=`mktemp`
 	trap "rm -f $TMPFILE" EXIT INT
 
 	EXCLUDE=
