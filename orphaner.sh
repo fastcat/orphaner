@@ -392,7 +392,7 @@ __OORPH_EOT
 					PACKAGES_TO_REMOVE="$(printf '%s ' $(grep -v '^----$' $TMPFILE | tr , ' '))"
 					PACKAGES_TO_REMOVE="${PACKAGES_TO_REMOVE% }"
 #					printf "$REMOVING" "$PACKAGES_TO_REMOVE"
-					APT_GET_CMDLN="apt-get $PURGE --show-upgraded --assume-yes remove $PACKAGES_TO_REMOVE"
+					APT_GET_CMDLN="apt-get $PURGE --show-upgraded remove $PACKAGES_TO_REMOVE"
 					if apt-get check -q -q 2> /dev/null && [ $SKIPAPT -eq 0 ]; then
 						$APT_GET_CMDLN || ERROR=$?
 					else
